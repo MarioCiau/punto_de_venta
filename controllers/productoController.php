@@ -5,6 +5,9 @@ class productoController{
         $producto = new Producto();
         $productos=$producto->getAll();
 
+        if(isset($_SESSION['sinStock'])){
+            unset($_SESSION['sinStock']);
+        }
         //renderizar vista
         require_once 'views/producto/productos.php';
     }

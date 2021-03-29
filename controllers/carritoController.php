@@ -92,6 +92,9 @@ class carritoController{
 
     public function delete_all(){
         unset($_SESSION['carrito']);
+        if(isset($_SESSION['sinStock'])){
+            unset($_SESSION['sinStock']);
+        }
         header("Location:?controller=carrito&action=index");
     }
 }
