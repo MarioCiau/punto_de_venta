@@ -1,0 +1,7 @@
+{
+  "require": {
+    "stefangabos/zebra_pagination": "^2.3",
+    "spipu/html2pdf": "^5.2",
+    "luecano/numero-a-letras": "^3.0"
+  }
+}
