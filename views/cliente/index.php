@@ -8,7 +8,7 @@
   </div>
 
   <div class="my-3 p-3 bg-white rounded shadow-sm">
-    <h6 class="border-bottom pb-2 mb-0">Clientes recientes</h6>
+    <h6 class="border-bottom pb-2 mb-0">Clientes puto</h6>
 
     <div class="col-12  d-flex justify-content-evenly align-items-strech flex-wrap">
     <?php while($cli = $clientes->fetch_object()):?>
