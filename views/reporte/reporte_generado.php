@@ -41,7 +41,7 @@
 <td><?=$abo->ventas_id?></td>
 <td><?=$abo->monto?></td>
 </tr>
-<?php $contador++; endwhile;?>
+<?php $contador++; $contadorArray++; endwhile;?>
 <tr> 
 <td><h3>$<?=$formato_numero = number_format($total_abonos, 2, '.', '');?></h3></td></tr>
 <tr>
