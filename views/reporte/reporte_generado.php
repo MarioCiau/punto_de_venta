@@ -57,5 +57,5 @@
 </div>
 <br>
 <h3>Ingresos totales: $<?=$formato_numero = number_format($total_fin, 2, '.', '');?></h3>
-<button onclick="generarTotales()"type="button" class="btn btn-outline-secondary">Generar Reporte <i class="fas fa-file-medical-alt"></i></button>
+<button onclick="generarTotales(<?=$fecha_inicial?>, <?=$fecha_final?>)"type="button" class="btn btn-outline-secondary">Generar Reporte <i class="fas fa-file-medical-alt"></i></button>
 </div>
