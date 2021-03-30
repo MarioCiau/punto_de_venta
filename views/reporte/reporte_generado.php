@@ -36,11 +36,11 @@
       </tr>
     </thead>
     <tbody>
-<?php $total_abonos=0; $contador=0; $contadorArray=0; while($contadorArray < count($_SESSION['informacion'][1])):  $total_abonos=$total_abonos+$_SESSION['informacion'][1]['monto']?>
-<tr>
+<?php $total_abonos=0; $contador=0; $contadorArray=0; while($contadorArray < count($_SESSION['informacion'][1])):  $total_abonos=$total_abonos+$_SESSION['informacion'][1][$contadorArray]['monto']?>
+<!-- <tr>
 <td><?=$abo->ventas_id?></td>
 <td><?=$abo->monto?></td>
-</tr>
+</tr> -->
 <?php $contador++; $contadorArray++; endwhile;?>
 <tr> 
 <td><h3>$<?=$formato_numero = number_format($total_abonos, 2, '.', '');?></h3></td></tr>
