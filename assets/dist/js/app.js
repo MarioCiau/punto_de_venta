@@ -141,7 +141,6 @@ function generarReporte(id) {
   });
 }
 
-
 function generarPagos(id2) {
   $.ajax({
     url: "phpAjax/cliente.php",
@@ -151,14 +150,8 @@ function generarPagos(id2) {
       $(location).attr("href", "phpAjax/generarPagos.php");
     },
   });
+}
 
-  function generarTotales(fechaIni, fechaFin) {
-    $.ajax({
-      url: "phpAjax/reportes.php",
-      type: "POST",
-      data: { fechaIni, fechaFin },
-      success: function (response) {
-        $(location).attr("href", "phpAjax/generarTotales.php");
-      },
-    });
+function generarTotales() {
+  $(location).attr("href", "phpAjax/generarTotales.php");
 }

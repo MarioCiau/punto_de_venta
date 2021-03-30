@@ -197,9 +197,15 @@ class Venta{
     }
 
     public function getAllByDate(){
+
+        $ventas_array = array();
         $ventas = $this->db->query("SELECT * FROM ventas WHERE fecha >= '{$this->getFechaInicial()}' AND fecha <= '{$this->getFechaFinal()}'");
 
-        return $ventas;
+        while($ven = $ventas->fetch_assoc()){
+            $ventas_array[]= $ven;
+        }
+
+        return $ventas_array;
     }
 
     public function getProductosByPedido($id){

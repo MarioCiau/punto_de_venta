@@ -25,6 +25,10 @@ class reporteController{
             $abono->setFechaFinal($fecha_final);
             $abonos=$abono->getAllByDate();
 
+            $_SESSION['informacion'][0] = $ventas;
+            $_SESSION['informacion'][1]= $abonos;
+
+
             require_once "views/reporte/reporte_generado.php";
         }
     }

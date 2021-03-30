@@ -10,21 +10,20 @@
       </tr>
     </thead>
     <tbody>
-<?php $total_ventas=0; $contador=0; while($ven=$ventas->fetch_object()): $total_ventas=$total_ventas+$ven->enganche ?>
+<?php $total_ventas=0; $contador=0; $contadorArray=0; while($contadorArray < count($_SESSION['informacion'][0])): $total_ventas=$total_ventas+ $_SESSION['informacion'][0][$contadorArray]['enganche'] ?>
 <!-- <tr>
-<td><?=$ven->id?></td>
-<td><?=$ven->enganche?></td>
-<td><?=$ven->tipo?></td>
+<td><?=$_SESSION['informacion'][0][$contadorArray]->id?></td>
+<td><?=$_SESSION['informacion'][0][$contadorArray]->enganche?></td>
+<td><?=$_SESSION['informacion'][0][$contadorArray]->tipo?></td>
 </tr> -->
-<?php $contador++; endwhile;?>
+<?php $contador++; $contadorArray++; endwhile;?>
 <tr>
 <td><h3>$<?=$formato_numero = number_format($total_ventas, 2, '.', '');?></h3></td></tr>
 <tr>
-<td>Cantidad de ventas: <?=$contador?></td> 
+<td>Cantidad de ventas: <?=$contador?></td>
 </tr>
     </tbody>
   </table>
-  
 </div>
 </div>
 
@@ -37,11 +36,11 @@
       </tr>
     </thead>
     <tbody>
-<?php $total_abonos=0; $contador=0; while($abo=$abonos->fetch_object()):  $total_abonos=$total_abonos+$abo->monto?>
-<!-- <tr>
+<?php $total_abonos=0; $contador=0; $contadorArray=0; while($contadorArray < count($_SESSION['informacion'][1])):  $total_abonos=$total_abonos+$_SESSION['informacion'][1]['monto']?>
+<tr>
 <td><?=$abo->ventas_id?></td>
 <td><?=$abo->monto?></td>
-</tr> -->
+</tr>
 <?php $contador++; endwhile;?>
 <tr> 
 <td><h3>$<?=$formato_numero = number_format($total_abonos, 2, '.', '');?></h3></td></tr>
@@ -57,5 +56,5 @@
 </div>
 <br>
 <h3>Ingresos totales: $<?=$formato_numero = number_format($total_fin, 2, '.', '');?></h3>
-<button onclick="generarTotales(<?=$fecha_inicial?>, <?=$fecha_final?>)"type="button" class="btn btn-outline-secondary">Generar Reporte <i class="fas fa-file-medical-alt"></i></button>
+<button onclick="generarTotales()"type="button" class="btn btn-outline-secondary">Generar Reporte <i class="fas fa-file-medical-alt"></i></button>
 </div>

@@ -175,9 +175,14 @@ class Abono{
     }
 
     public function getAllByDate(){
-        $abonos = $this->db->query("SELECT * FROM abonos WHERE fecha >= '{$this->getFechaInicial()}' AND fecha <= '{$this->getFechaFinal()}'");
+        $abono_array = array();
 
-        return $abonos;
+        $abonos = $this->db->query("SELECT * FROM abonos WHERE fecha >= '{$this->getFechaInicial()}' AND fecha <= '{$this->getFechaFinal()}'");
+        while($abon = $abonos->fetch_assoc()){
+            $abono_array[] = $abon;
+        }
+
+        return $abono_array;
     }
 
     public function save(){
