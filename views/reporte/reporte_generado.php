@@ -49,8 +49,7 @@
 </tr>
     </tbody>
   </table>
-  <h3> </h3>
-  <?php $total_fin=$total_abonos+$total_ventas;?>
+  <h3><?php $total_fin=$total_abonos+$total_ventas;?></h3>
 </div>
 </div>
 </div>
