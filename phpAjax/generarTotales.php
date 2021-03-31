@@ -11,4 +11,5 @@ $html = ob_get_clean();
 
 $html2pdf->writeHTML($html);
 $html2pdf->output('pdf_generado.pdf');
+
 ?>

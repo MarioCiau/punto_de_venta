@@ -28,9 +28,15 @@ class reporteController{
             $_SESSION['informacion'][0] = $ventas;
             $_SESSION['informacion'][1]= $abonos;
 
+            unset($_POST['fecha_ini']);
+            unset($_POST['fecha_fin']);
 
-            require_once "views/reporte/reporte_generado.php";
         }
+        header("Location:?controller=reporte&action=reporte");
+    }
+
+    public function reporte(){
+        require_once "views/reporte/reporte_generado.php";
     }
 }
 
