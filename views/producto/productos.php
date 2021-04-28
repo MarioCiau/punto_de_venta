@@ -19,6 +19,9 @@ $productosLimite = $producto->paginacion($empieza_aqui, $numero_elementos_por_pa
 
 <div class="container">
 <h2 class="border-bottom pb-2 ">Nuestros productos</h2>
+<!-- <form action="">
+<input class="form-control form-control-sm" id="busqueda" type="text" placeholder="Busqueda.." aria-label=".form-control-sm example">
+</form> -->
 
 <div class="d-flex justify-content-between align-items-strech flex-wrap">
 <?php while($product = $productosLimite->fetch_object()):?>

@@ -33,6 +33,39 @@ $(document).ready(function () {
     });
   });
 
+  $("#busqueda").keyup(function (e) {
+    let busqueda = $("#busqueda").val();
+    $.ajax({
+      url: "phpAjax/cliente.php",
+      type: "POST",
+      data: { busqueda },
+      success: function (response) {
+        if (response != "404") {
+          let data = JSON.parse(response);
+          // $("#v2").removeAttr("disabled");
+          // $("#v3").removeAttr("disabled");
+          // $("#v4").removeAttr("disabled");
+          // $("#v1").val(data[0].id);
+          $("#busqueda").attr("show")
+          $("#busqueda_resultado").val(data[0].nombre);
+          // $("#v3").val(data[0].telefono);
+          // $("#v4").val(data[0].direccion);
+          // $("#nuevo_cliente").slideUp();
+          console.log(data[0].nombre);
+        } else {
+          // $("#v1").val("");
+          // $("#v2").val("");
+          // $("#v3").val("");
+          // $("#v4").val("");
+          // $("#v2").attr("disabled", "disabled");
+          // $("#v3").attr("disabled", "disabled");
+          // $("#v4").attr("disabled", "disabled");
+          // $("#nuevo_cliente").slideDown();
+        }
+      },
+    });
+  });
+
   $("#r2").attr("disabled", "disabled");
   $("#r3").attr("disabled", "disabled");
   $("#r4").attr("disabled", "disabled");

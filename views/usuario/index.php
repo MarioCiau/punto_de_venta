@@ -1,10 +1,17 @@
 <?php if(isset($_SESSION['identify'])):?>
 <div class="container">
+<?php if(isset($_SESSION['datos'])):?>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+  Se ha cambiado correctamente los datos del sistema.
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+<?php endif;?>
+<?php Utils::deleteSession('datos');?>
 <h2 class="border-bottom pb-2 ">Panel de administración</h2>
 <div class="row">
 
 
-<a class="col-xl-3 col-md-6 mb-4 cartas" href="#">
+<a class="col-xl-3 col-md-6 mb-4 cartas" href="?controller=usuario&action=gestion">
     <div class="card border-primary   shadow h-100 py-2">
         <div class="card-body">
             <div class="row no-gutters align-items-center">
@@ -110,35 +117,35 @@ $totalVentas++;?>
 						Datos de la Empresa
 					</div>
 					<div class="card-body">
-						<form action="empresa.php" method="post" id="frmEmpresa" class="p-1">
-							<div class="form-group">
-								<label>RFC:</label>
-								<input type="text" name="txtDni" value="" id="txtDni" placeholder="RFC de la Empresa" required class="form-control">
+						<form action="?controller=usuario&action=datos" method="post" class="p-1">
+                        <div class="form-group">
+								<label>Nombre Dueña:</label>
+								<input type="text" name="dueña" class="form-control" value="<?php echo $_SESSION['dueña']?>" id="txtNombre" placeholder="Nombre de la Empresa" required class="form-control">
 							</div>
 							<div class="form-group">
-								<label>Nombre:</label>
-								<input type="text" name="txtNombre" class="form-control" value="" id="txtNombre" placeholder="Nombre de la Empresa" required class="form-control">
+								<label>RFC:</label>
+								<input type="text" name="rfc" placeholder="RFC de la Empresa" required class="form-control" value="<?php echo $_SESSION['rfc']?>">
+							</div>
+                            <div class="form-group">
+								<label>CURP:</label>
+								<input type="text" name="curp" placeholder="Curp de la dueña" required class="form-control" value="<?php echo $_SESSION['curp']?>">
 							</div>
 							<div class="form-group">
 								<label>Razon Social:</label>
-								<input type="text" name="txtRSocial" class="form-control" value="" id="txtRSocial" placeholder="Razon Social de la Empresa">
-							</div>
-							<div class="form-group">
-								<label>Teléfono:</label>
-								<input type="phone" name="txtTelEmpresa" class="form-control" value="" id="txtTelEmpresa" placeholder="Teléfono de la Empresa" required>
-							</div>
-							<div class="form-group">
-								<label>Correo Electrónico:</label>
-								<input type="email" name="txtEmailEmpresa" class="form-control" value="" id="txtEmailEmpresa" placeholder="Correo de la Empresa" required>
+								<input type="text" name="razonSocial" class="form-control" value="<?php echo $_SESSION['razonSocial']?>" id="txtRSocial" placeholder="Razon Social de la Empresa">
 							</div>
 							<div class="form-group">
 								<label>Dirección:</label>
-								<input type="text" name="txtDirEmpresa" class="form-control" value="" id="txtDirEmpresa" placeholder="Dirreción de la Empresa" required>
+								<input type="text" name="direccionEmpresa" class="form-control" value="<?php echo $_SESSION['direccionEmpresa']?>" id="txtDirEmpresa" placeholder="Dirreción de la Empresa" required>
 							</div>
-
+                            <?php if(isset($_SESSION['admin'])):?>
 							<div>
 								<button type="submit" class="btn btn-primary btnChangePass mt-2"><i class="fas fa-save"></i> Guardar Datos</button>
 							</div>
+                            <?php else:?>
+                            <br>
+                                <span class="badge bg-secondary">CONTACTE AL ADMINISTRADOR PARA CONFIGURACIÓN</span>
+                            <?php endif;?>
 
 						</form>
 					</div>
@@ -150,8 +157,8 @@ $totalVentas++;?>
 
 <?php else:?>
 
-<div class="container">
-<h2 class="border-bottom pb-2 text-muted display-6 text-center">EL GRAN TOPE UMAN</h2>
+<div class="container text-center">
+<img src="assets/brand/LOGO.png" alt="" width="150px" heigth="50px">
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
           <ol class="carousel-indicators">
             <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>

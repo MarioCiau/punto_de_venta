@@ -173,6 +173,11 @@ class Producto{
         return $clientes;
     }
 
+    public function busqueda(){
+        $productos= $this->db->query("SELECT * FROM productos WHERE nombre like '%{$this->getNombre()}%'");
+        return $productos;
+    }
+
     public function save(){
         $sql = "INSERT INTO productos VALUES(NULL,'{$this->getCategoria_id()}', '{$this->getNombre()}', '{$this->getDescripcion()}', {$this->getPrecio()}, {$this->getStock()}, null, CURDATE(), '{$this->getImagen()}');";
         $save = $this->db->query($sql);

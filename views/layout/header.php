@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gran Tope</title>
+    <link rel="shortcut icon" href="assets/brand/favicon.png">
     <!-- Bootstrap core CSS -->
 <script src='https://kit.fontawesome.com/66f5e943e2.js' crossorigin='anonymous'></script>
 <script src="assets/dist/js/jquery-3.5.1.js"></script>
@@ -35,7 +36,10 @@
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <input class="form-control form-control-dark w-100" type="text" placeholder="Buscar" aria-label="Search">
+  <input class="form-control form-control-dark w-100" type="text" placeholder="Buscar" id="busqueda" aria-label="Search">
+  <ul class="dropdown-menu"  id="busquedaContenedor">
+                    <li><a class="dropdown-item"  id="resultado_busqueda" href="#"></a></li>
+                  </ul>
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
     <?php if(!isset($_SESSION['identify'])):?>

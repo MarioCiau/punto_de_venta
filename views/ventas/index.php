@@ -59,7 +59,7 @@
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label>Enganche / Pago</label>
-                                                    <input type="number" class="form-control" name="anticipo" required>
+                                                    <input type="number" class="form-control" name="anticipo" step="any" required>
                                                 </div>
                                             </div>
                                             <div id="div_registro_cliente" style="margin-top:5px">

@@ -29,6 +29,31 @@ if(isset($_POST['search'])){
 }
 
 
+if(isset($_POST['busqueda'])){
+    $busqueda = $_POST['busqueda'];
+    $producto = new Producto();
+    $producto->setNombre($busqueda);
+    $searched=$producto->busqueda();
+
+    if($searched && $searched->num_rows > 0){
+        $json = array();
+    while($row = $searched->fetch_assoc()){
+        $json[]=array(
+            'id'=>$row['id'],
+            'nombre'=>$row['nombre'],
+            'precio'=>$row['precio'],
+            'stock'=>$row['stock']
+        );
+    }
+    $json_string = json_encode($json);
+    echo $json_string;
+    $_SESSION['busquedaProductos']='complete';
+    }else{
+        echo '404';
+    }
+}
+
+
 if(isset($_POST['product'])){
     $product = $_POST['product'];
     $producto = new Producto();

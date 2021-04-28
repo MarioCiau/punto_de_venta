@@ -165,10 +165,10 @@ $informacionCliente = $_SESSION['resultado'][0];
 
          <tr>
         <th class="nombreEmpresa">
-            <h3>MARTHA ELENA CHUIL POOL</h3>
-              <p>R.F.C. CUPM690224NC7</p>
-              <P>CURP: CUPM690224MYNHLR00</P>
-              <p>Calle 25 No. 127-A x 24 y 26</p>
+            <h3><?=$_SESSION['dueña']?></h3>
+              <p>R.F.C. <?=$_SESSION['rfc']?></p>
+              <P>CURP: <?=$_SESSION['curp']?></P>
+              <p><?=$_SESSION['direccionEmpresa']?></p>
               <p>Col. Santiago Umán, Yuc.</p>
         </th>
       </tr>

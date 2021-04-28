@@ -82,10 +82,12 @@ CREATE TABLE lineas_ventas(
 CREATE TABLE abonos(
  id             int (255) auto_increment not null,
  ventas_id      int(255) not null,
+clientes_id      int(255) not null,
  monto          float(100,2) not null,
  fecha          date,
  hora           time,
  saldo          float(100,2),
  CONSTRAINT pk_abonos PRIMARY KEY(id),
- CONSTRAINT fk_abonos_ventas FOREIGN KEY(ventas_id) REFERENCES ventas(id)
+ CONSTRAINT fk_abonos_ventas FOREIGN KEY(ventas_id) REFERENCES ventas(id),
+CONSTRAINT fk_abonos_clientes FOREIGN KEY(clientes_id) REFERENCES clientes(id)
 )ENGINE=InnoDb;

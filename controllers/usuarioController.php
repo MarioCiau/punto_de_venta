@@ -55,6 +55,11 @@ class usuarioController{
 
           if($identify && is_object($identify)){
             $_SESSION['identify']=$identify;
+            $_SESSION['rfc']='CUPM690224NC7';
+            $_SESSION['curp']='CUPM690224MYNHLR00';
+            $_SESSION['direccionEmpresa']='Calle 25 No. 127-A x 24 y 26';
+            $_SESSION['razonSocial']='Gran Tope';
+            $_SESSION['dueña']='Martha Elena Chuil Pool';
             if(isset($_SESSION['error_login'])){
               unset($_SESSION['error_login']);
           }
@@ -78,5 +83,40 @@ class usuarioController{
       }
       header("Location:index.php?controller=usuario&action=index");
   }
+
+  public function datos(){
+    if(isset($_POST)){
+
+      $rfc = isset($_POST['rfc']) ? $_POST['rfc'] : false;
+      $dueña = isset($_POST['dueña']) ? $_POST['dueña'] : false;
+      $razonSocial = isset($_POST['razonSocial']) ? $_POST['razonSocial'] : false;
+      $direccionEmpresa = isset($_POST['direccionEmpresa']) ? $_POST['direccionEmpresa'] : false;
+      $curp = isset($_POST['curp']) ? $_POST['curp'] : false;
+
+      if($rfc && $dueña && $razonSocial && $direccionEmpresa && $curp){
+
+        $_SESSION['rfc']=$rfc;
+        $_SESSION['direccionEmpresa']=$direccionEmpresa;
+        $_SESSION['razonSocial']=$razonSocial;
+        $_SESSION['dueña']=$dueña;
+        $_SESSION['curp']=$curp;
+        $_SESSION['datos'] ="complete";
+    }else{
+      $_SESSION['datos'] ="failed";
+    }
+  }else{
+    $_SESSION['datos'] ="failed";
+  }
+  
+  header("Location:index.php?controller=usuario&action=index");
+
+  }
+
+  public function gestion(){
+    Utils::isAdmin();
+    $usuario = new  Usuario();
+    $usuarios = $usuario->getAllUsers();
+    require_once 'views/usuario/gestion.php';
+}
 }
 ?>
